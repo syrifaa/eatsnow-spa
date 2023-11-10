@@ -1,7 +1,8 @@
 import React from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import Login from "./pages/Login";
+import RestaurantList from './pages/RestaurantList';
 
 const theme = extendTheme({
   fonts: {
@@ -23,12 +24,9 @@ const App = () => {
     <ChakraProvider theme={theme}>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<RestaurantList />} />
       </Routes>
     </ChakraProvider>
-    // <h1 className="text-3xl font-bold underline">
-    //   Hello world!
-    // </h1>
   );
 }
 
