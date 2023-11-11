@@ -1,9 +1,12 @@
-import { Box, Link, VStack, Flex } from '@chakra-ui/react';
+import { Box, useDisclosure, useMediaQuery, Link, VStack } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation} from 'react-router-dom';
 import logoImage from '../assets/logo1.svg';
+import { HamburgerIcon } from "@chakra-ui/icons";
 
-function Navbar() {
-    let location = useLocation();
+const Navbar: React.FC = (props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isLargerThanMd] = useMediaQuery("(min-width: 48em)");
+  let location = useLocation();
     const boxStyle = {
         width: '100%',
         height: '66px',
@@ -13,7 +16,6 @@ function Navbar() {
         fontSize: '18px',
         fontWeight: 'bold',
         cursor: 'pointer',
-        background: '#1C1C1C',
     };
 
     const getBoxStyleForPath = (path: string) => {
@@ -32,20 +34,35 @@ function Navbar() {
         return baseStyle;
         };
 
-    return (
-    <Flex
-        as="nav"
-        align="center"
-        justify="space-between"
-        p="4"
-        bg="transparent"
-        color="white"
-        position="fixed"
-        width="100%"
-    >
+  return (
+    <>
+      {!isLargerThanMd && (
+        <HamburgerIcon
+          display={{ base: "block", md: "none" }}
+          onClick={isOpen ? onClose : onOpen}
+          position="fixed"
+          top={4}
+          left={isOpen? 200 : 4}
+          boxSize={10}
+          zIndex={2}
+          color={isOpen ? "white" : "black"}
+        />
+      )}
+      <Box
+        display={isOpen || isLargerThanMd ? "block" : "none"}
+        position={{ base: "fixed", md: "static" }}
+        top={0}
+        left={0}
+        bottom={0}
+        right={0}
+        width={{ base: "280px", md: "20rem" }}
+        h="100vh"
+        p={4}
+        zIndex={1}
+      >
         <Box bg="#1C1C1C" color="white" w="64" h="100vh" pt="4" position="fixed" left="0" top="0">
             <VStack spacing="4" align="stretch">
-            <Link as={RouterLink} to="/" mb="40px" pl='4' pr='4'>
+            <Link as={RouterLink} to="/" mb="40px" mt={isOpen? "40px" : "0px"} pl='4' pr='4'>
                 <img src={logoImage} alt="logo" />
             </Link>
             <Link as={RouterLink} to="/" display="flex" alignItems="center">
@@ -70,8 +87,9 @@ function Navbar() {
             </Link>
             </VStack>
         </Box>
-    </Flex>
-    );
+      </Box>
+    </>
+  );
 };
 
 export default Navbar;
