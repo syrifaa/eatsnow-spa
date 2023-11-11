@@ -7,9 +7,7 @@ import {
     Stack,
     Button,
     Flex,
-    ChakraProvider,
     CSSReset,
-    extendTheme, 
     Spacer,
   } from "@chakra-ui/react";
 import pinpointImage from '../assets/vectors/pinpoint.svg';
@@ -35,7 +33,7 @@ function RestaurantList() {
   };
   
   return(
-    <ChakraProvider theme={extendTheme({})}>
+    <>
       <CSSReset />
       <Flex align="center"
         justify="center"
@@ -58,9 +56,10 @@ function RestaurantList() {
               src={exampleImage}
               alt='Contoh Gambar'
               className='my-class'
-              mr="35px"
+              
+              
             />
-            <Stack>
+            <Stack backgroundColor="#F5F5F5" pl="35px">
               <CardBody pt={0} pl='5px' pr='10px' pb='0px'>
                 <Text fontSize="16px" fontWeight={900} textAlign="left" mb="7px" mt={0}>{item.name}</Text>
                 <Text textAlign={'left'} fontSize={12} mb="7px" mt={0}>{item.type}</Text>
@@ -93,7 +92,7 @@ function RestaurantList() {
           ))}
           </Stack>
       </Flex>
-    </ChakraProvider>
+    </>
   );
 }
 
