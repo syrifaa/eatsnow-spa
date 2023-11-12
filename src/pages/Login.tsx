@@ -32,12 +32,12 @@ function Login() {
           <Text fontSize="2xl" fontWeight="bold" textAlign="center" mb="5">Login</Text>
           <Box m="4">
           <Text fontWeight="bold">Email</Text>
-            <Input type="email" id="email" name="email" bg="#D9D9D9" isRequired />
+            <Input type="email" id="email" name="email" bg="#D9D9D9" borderRadius="20" isRequired />
             <Text id="emailError" color="red" fontSize="sm" fontWeight="lighter" mt="0" />
           </Box>
           <Box m="4">
             <Text fontWeight="bold">Password</Text>
-            <Input type="password" id="password" name="password" bg="#D9D9D9" isRequired />
+            <Input type="password" id="password" name="password" bg="#D9D9D9" borderRadius="20" isRequired />
             <Text id="passwordError" color="red" fontSize="sm" fontWeight="lighter" mt="0" />
           </Box>
           <Flex justify="center"> {/* Center the button horizontally */}
@@ -54,14 +54,15 @@ function Login() {
               w="135px"
               h="50px"
               mt="5"
+              borderRadius="20"
             >
               Login
             </Box>
           </Flex>
-          <Text textAlign="center" fontSize="sm" fontWeight="lighter" mt="2">
+          {/* <Text textAlign="center" fontSize="sm" fontWeight="lighter" mt="2">
             Don't Have an Account? Click 
-            {/* <Link href="/Register" color="blue.500" textDecoration="underline" display="inline">here</Link> to sign up */}
-          </Text>
+            <Link href="/Register" color="blue.500" textDecoration="underline" display="inline">here</Link> to sign up
+          </Text> */}
         </Box>
       </Flex>
       {/* <Link href="/Home" id="back-btn" pos="fixed" top="4vw" left="4vw" bg="#F5F5F5" borderRadius="50%" opacity="0.8">

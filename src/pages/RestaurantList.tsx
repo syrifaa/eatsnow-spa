@@ -9,7 +9,10 @@ import {
     Flex,
     CSSReset,
     Spacer,
+    Box,
+    Link,
   } from "@chakra-ui/react";
+import { Link as RouterLink} from 'react-router-dom';
 import pinpointImage from '../assets/vectors/pinpoint.svg';
 import clockImage from '../assets/vectors/clock.svg';
 import starImage from '../assets/vectors/star.svg';
@@ -83,9 +86,23 @@ function RestaurantList() {
 
               <CardFooter p={0}>
                 <Spacer/>
-                <Button variant='solid' backgroundColor='#FFF177' borderColor='#FFF177' style={buttonStyle} fontSize={18} fontWeight="bold" mb="10px">
-                  Add Review
-                </Button>
+                <Link as={RouterLink} to="/add-review" display="flex" alignItems="center">
+                  <Box
+                  as='button'
+                  type="submit"
+                  id="submit-login"
+                  bgColor="#FFF177"
+                  borderColor="#1C1C1C"
+                  borderWidth="3px"
+                  color="#1C1C1C"
+                  fontWeight="bold"
+                  fontSize="md"
+                  padding="10px"
+                  borderRadius="20"
+                  >
+                    Add Review
+                  </Box>
+                </Link>
               </CardFooter>
             </Stack>
           </Card>
