@@ -21,8 +21,8 @@ import {
     AlertDialogFooter,
     Button,
 } from "@chakra-ui/react";
-import React, { useRef } from 'react';
-import { SetStateAction, useState } from "react";
+
+import { useRef, SetStateAction, useState } from 'react';
 import { Link as RouterLink} from 'react-router-dom';
 
 function AddReview() {
@@ -33,7 +33,6 @@ function AddReview() {
   const cancelRef = useRef<HTMLButtonElement>(null)
 
   return (
-  <>
     <Flex align="center" justify="center" minH="100vh" direction="column">
       <Box w={[300, 400, 500]}>
         <Text fontSize="2xl" fontWeight="bold" textAlign="center" mb="5">Restaurant Name</Text>
@@ -115,7 +114,6 @@ function AddReview() {
         </Box>
       </Link>
     </Flex>
-  </>
   );
 }
 

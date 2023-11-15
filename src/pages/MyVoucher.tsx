@@ -1,31 +1,15 @@
 import Navbar from '../components/Navbar';
 import {
-    Text,
-    Textarea,
     Box,
     Card,
-    FormControl,
-    FormLabel,
-    Input,
     Stack,
-    Slide,
     Button,
     Link,
-    ButtonGroup,
-    Alert,
-    AlertTitle,
-    AlertDescription,
-    AlertIcon,
-    CloseButton,
     useDisclosure,
-    useToast,
     Flex,
     Image,
-    useColorModeValue,
     CardBody,
-    CardFooter,
     Heading,
-    Center,
     AlertDialogOverlay,
     AlertDialog,
     AlertDialogBody,
@@ -34,7 +18,7 @@ import {
     AlertDialogHeader,
 } from "@chakra-ui/react";
 import voucherIcon from "../assets/vectors/voucher.svg"
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Link as RouterLink} from 'react-router-dom';
 
 function MyVoucher() {
@@ -48,7 +32,6 @@ function MyVoucher() {
     const cancelRef = useRef<HTMLButtonElement>(null)
 
     return (
-    <>
       <Flex align="center" justify="center" minH="100vh" direction="row">
         <Navbar />
         <Stack direction="column" spacing="4">
@@ -138,7 +121,6 @@ function MyVoucher() {
             500 points
         </Box>
       </Flex>
-    </>
     );
 }
 

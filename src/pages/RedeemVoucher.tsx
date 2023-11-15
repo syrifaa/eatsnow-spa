@@ -2,29 +2,15 @@ import Navbar from '../components/Navbar';
 
 import {
     Text,
-    Textarea,
     Box,
     Card,
-    FormControl,
-    FormLabel,
-    Input,
     Stack,
-    Slide,
     Button,
     Link,
-    ButtonGroup,
-    Alert,
-    AlertTitle,
-    AlertDescription,
-    AlertIcon,
-    CloseButton,
     useDisclosure,
-    useToast,
     Flex,
     Image,
-    useColorModeValue,
     CardBody,
-    CardFooter,
     Heading,
     AlertDialog,
     AlertDialogBody,
@@ -34,7 +20,7 @@ import {
     AlertDialogOverlay,
 } from "@chakra-ui/react";
 import voucherIcon from "../assets/vectors/voucher.svg"
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Link as RouterLink} from 'react-router-dom';
 
 function RedeemVoucher() {

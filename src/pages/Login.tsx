@@ -1,30 +1,12 @@
 import {
   Text,
   Box,
-  FormControl,
-  FormLabel,
   Input,
-  Stack,
-  Slide,
-  Button,
-  Link,
-  ButtonGroup,
-  Alert,
-  AlertTitle,
-  AlertDescription,
-  AlertIcon,
-  CloseButton,
-  useDisclosure,
-  useToast,
   Flex,
-  useColorModeValue,
 } from "@chakra-ui/react";
-
-import { useEffect, useState } from "react";
-import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
-
   return (
     <>
       <Flex align="center" justify="center" minH="100vh" direction="column">
@@ -55,14 +37,16 @@ function Login() {
               h="50px"
               mt="5"
               borderRadius="20"
+              marginBottom={4}
             >
               Login
             </Box>
           </Flex>
-          {/* <Text textAlign="center" fontSize="sm" fontWeight="lighter" mt="2">
-            Don't Have an Account? Click 
-            <Link href="/Register" color="blue.500" textDecoration="underline" display="inline">here</Link> to sign up
-          </Text> */}
+          <Text textAlign="center" fontSize="sm" fontWeight="lighter" mt="2">
+            Don't Have an Account? Subscribe in our {}
+            <Link to="http://localhost:8080/" style={{ color: "blue.500", textDecoration: "underline", display: "inline" }}>EatsNow App</Link> 
+            {} to get premium access
+          </Text>
         </Box>
       </Flex>
       {/* <Link href="/Home" id="back-btn" pos="fixed" top="4vw" left="4vw" bg="#F5F5F5" borderRadius="50%" opacity="0.8">
