@@ -67,7 +67,7 @@ function MyReview() {
 
         return (
             <>
-            <Flex align="center" justify="center" minH="100vh" direction="row" mt="10%" mb="10%">
+            <Flex align="center" justify="center" minH="100vh" direction="row">
                 <Navbar />
                 <Stack direction="column" spacing="4">
                     {data.map((item, index) => (
