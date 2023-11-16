@@ -6,6 +6,7 @@ import RestaurantList from './pages/RestaurantList';
 import AddReview from "./pages/AddReview";
 import RedeemVoucher from "./pages/RedeemVoucher";
 import MyVoucher from "./pages/MyVoucher";
+import MyReview from "./pages/MyReview";
 
 const theme = extendTheme({
   fonts: {
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/add-review" element={<AddReview />} />
         <Route path="/redeem-voucher" element={<RedeemVoucher />} />
         <Route path="/my-voucher" element={<MyVoucher />} />
+        <Route path="/my-review" element={<MyReview />} />
         <Route path="*" element={<Login />} />
       </Routes>
     </ChakraProvider>
