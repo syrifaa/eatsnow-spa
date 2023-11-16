@@ -1,7 +1,10 @@
-import { Box, useDisclosure, useMediaQuery, Link, VStack } from "@chakra-ui/react";
 import { Link as RouterLink, useLocation} from 'react-router-dom';
-import logoImage from '../assets/logo1.svg';
+
+import { Box, useDisclosure, useMediaQuery, Link, VStack } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+
+import logoImage from '../assets/logo1.svg';
+
 
 const Navbar: React.FC = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -78,6 +81,11 @@ const Navbar: React.FC = (props) => {
             <Link as={RouterLink} to="/my-voucher" display="flex" alignItems="center">
                 <div style={{ ...boxStyle, ...getBoxStyleForPath('/my-voucher') }}>
                     My Voucher
+                </div>
+            </Link>
+            <Link as={RouterLink} to="/my-review" display="flex" alignItems="center">
+                <div style={{ ...boxStyle, ...getBoxStyleForPath('/my-review') }}>
+                    My Review
                 </div>
             </Link>
             <Link as={RouterLink} to="/logout" display="flex" alignItems="center">

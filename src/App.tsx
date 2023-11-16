@@ -1,21 +1,22 @@
-import React from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { Routes, Route, BrowserRouter as Router} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+
 import Login from "./pages/Login";
 import RestaurantList from './pages/RestaurantList';
 import AddReview from "./pages/AddReview";
 import RedeemVoucher from "./pages/RedeemVoucher";
 import MyVoucher from "./pages/MyVoucher";
+import MyReview from "./pages/MyReview";
 
 const theme = extendTheme({
   fonts: {
-    body: 'Poppins, sans-serif', // Use Poppins as the default font
+    body: 'Poppins, sans-serif'
   },
   styles: {
     global: {
       // Set the background color of the body
       body: {
-        bg: "#f5f5f5", // Replace with your desired background color
+        bg: "#f5f5f5"
       },
     },
   },
@@ -31,6 +32,8 @@ const App = () => {
         <Route path="/add-review" element={<AddReview />} />
         <Route path="/redeem-voucher" element={<RedeemVoucher />} />
         <Route path="/my-voucher" element={<MyVoucher />} />
+        <Route path="/my-review" element={<MyReview />} />
+        <Route path="*" element={<Login />} />
       </Routes>
     </ChakraProvider>
   );
