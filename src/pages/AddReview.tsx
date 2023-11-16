@@ -87,18 +87,18 @@ function AddReview() {
                 </AlertDialogHeader>
 
                 <AlertDialogBody>
-                  Are you sure? You can't edit this review afterwards.
+                  Are you sure? You can't delete this review afterwards.
                 </AlertDialogBody>
 
                 <AlertDialogFooter>
-                  <Button ref={cancelRef} onClick={onClose}>
-                    Cancel
-                  </Button>
                   <Link as={RouterLink} to="/" display="flex" alignItems="center">
-                    <Button colorScheme='red' onClick={onClose} ml={3}>
+                    <Button colorScheme='green' onClick={onClose} ml={3}>
                       Add
                     </Button>
                   </Link>
+                  <Button ref={cancelRef} colorScheme='red' onClick={onClose}>
+                    Cancel
+                  </Button>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialogOverlay>

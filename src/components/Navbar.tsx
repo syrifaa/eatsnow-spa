@@ -80,6 +80,11 @@ const Navbar: React.FC = (props) => {
                     My Voucher
                 </div>
             </Link>
+            <Link as={RouterLink} to="/my-review" display="flex" alignItems="center">
+                <div style={{ ...boxStyle, ...getBoxStyleForPath('/my-review') }}>
+                    My Review
+                </div>
+            </Link>
             <Link as={RouterLink} to="/logout" display="flex" alignItems="center">
                 <div style={{ ...boxStyle, ...getBoxStyleForPath('/logout') }}>
                     Logout

@@ -103,14 +103,14 @@ function MyVoucher() {
                             </AlertDialogBody>
 
                             <AlertDialogFooter>
-                            <Button ref={cancelRef} onClick={onClose}>
-                                Cancel
-                            </Button>
                             <Link as={RouterLink} to="/my-voucher" display="flex" alignItems="center">
-                                <Button colorScheme='red' onClick={onClose} ml={3}>
+                                <Button colorScheme='green' onClick={onClose} ml={3}>
                                 Use
                                 </Button>
                             </Link>
+                            <Button ref={cancelRef} colorScheme='red' onClick={onClose}>
+                                Cancel
+                            </Button>
                             </AlertDialogFooter>
                         </AlertDialogContent>
                         </AlertDialogOverlay>
