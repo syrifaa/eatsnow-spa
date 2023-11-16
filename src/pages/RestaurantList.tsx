@@ -1,11 +1,9 @@
-import Navbar from '../components/Navbar';
 import {
     Card,
     CardBody, CardFooter,
     Text,
     Image,
     Stack,
-    Button,
     Flex,
     CSSReset,
     Spacer,
@@ -13,6 +11,9 @@ import {
     Link,
   } from "@chakra-ui/react";
 import { Link as RouterLink} from 'react-router-dom';
+
+import Navbar from '../components/Navbar';
+
 import pinpointImage from '../assets/vectors/pinpoint.svg';
 import clockImage from '../assets/vectors/clock.svg';
 import starImage from '../assets/vectors/star.svg';
