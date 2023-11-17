@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const REST_URL = "http://localhost:8010/api";
+import { REST_URL } from './url';
 
 const axiosController = axios.create({
     baseURL: REST_URL,

@@ -22,7 +22,7 @@ import voucherIcon from "../assets/vectors/voucher.svg"
 import React, { useEffect, useRef, useState } from 'react';
 import { Link as RouterLink} from 'react-router-dom';
 import axios from 'axios';
-import { REST_API_URL } from '../utils/axios';
+import { REST_URL } from '../utils/url';
 
 function RedeemVoucher() {
     interface YourItemType {
@@ -39,7 +39,7 @@ function RedeemVoucher() {
     //     { id: 3, title: 'Voucher 35%', desc: 100},
     //     { id: 4, title: 'Voucher 50%', desc: 200},
     //   ];
-    const url = REST_API_URL + 'voucher';
+    const url = REST_URL + 'voucher';
     const fetchVoucher = () => {
         return axios.get(url);
     };

@@ -20,7 +20,8 @@ import starImage from '../assets/vectors/star.svg';
 import exampleImage from '../assets/rest1.svg';
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import { REST_API_URL } from '../utils/axios';
+import { REST_URL } from "../utils/url";
+
 
 function RestaurantList() {
   interface YourItemType {
@@ -34,7 +35,7 @@ function RestaurantList() {
     data: YourItemType[];
   }
 
-    const url = REST_API_URL + 'restaurant';
+    const url = REST_URL + 'restaurant';
     const fetchRestaurant = () => {
         return axios.get(url);
     };
