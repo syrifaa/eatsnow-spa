@@ -22,20 +22,28 @@ import {
     Button,
 } from "@chakra-ui/react";
 
-import { useRef, SetStateAction, useState } from 'react';
+import { useRef, SetStateAction, useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import { Link as RouterLink} from 'react-router-dom';
 
 function AddReview() {
-  const [input, setInput] = useState('')
-  const handleInputChange = (e: { target: { value: SetStateAction<string>; }; }) => setInput(e.target.value)
-  const isError = input === ''
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = useRef<HTMLButtonElement>(null)
+  const { resto_id, resto_name } = useParams();
+  const [input, setInput] = useState('');
+  const handleInputChange = (e: { target: { value: SetStateAction<string>; }; }) => setInput(e.target.value);
+  const isError = input === '';
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef(null);
+
+  useEffect(() => {
+    console.log('Resto ID:', resto_id);
+    console.log('Resto Name:', resto_name);
+    // Fetch additional data based on resto_id if needed
+  }, [resto_id, resto_name]);
 
   return (
     <Flex align="center" justify="center" minH="100vh" direction="column">
       <Box w={[300, 400, 500]}>
-        <Text fontSize="2xl" fontWeight="bold" textAlign="center" mb="5">Restaurant Name</Text>
+        <Text fontSize="2xl" fontWeight="bold" textAlign="center" mb="5">{resto_name}</Text>
         <Box m="4">
           <FormControl>
             <FormLabel fontWeight="bold">Rating</FormLabel>
