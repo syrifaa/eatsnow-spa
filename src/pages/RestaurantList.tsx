@@ -16,10 +16,11 @@ import { Link as RouterLink} from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 import pinpointImage from '../assets/vectors/pinpoint.svg';
-import clockImage from '../assets/vectors/clock.svg';
 import starImage from '../assets/vectors/star.svg';
 import exampleImage from '../assets/rest1.svg';
 import { useEffect, useState } from "react";
+import axios from 'axios';
+import { REST_API_URL } from '../utils/axios';
 
 function RestaurantList() {
   interface YourItemType {
@@ -33,14 +34,20 @@ function RestaurantList() {
     data: YourItemType[];
   }
 
-  const [data, setData] = useState<YourItemType[]>([]);
+    const url = REST_API_URL + 'restaurant';
+    const fetchRestaurant = () => {
+        return axios.get(url);
+    };
 
-  useEffect(() => {
-    fetch('http://localhost:8080/api/listRestaurant.php')
-      .then(response => response.json())
-      .then(result => setData(result))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);  // Empty dependency array ensures the fetch only runs once
+    const [data, setData] = useState<YourItemType[]>([]);
+
+    useEffect(() => {
+        fetchRestaurant().then(response => {
+            setData(response.data);
+        }).catch(error => {
+            console.error('Error fetching voucher:', error);
+        });
+    }, []);
 
   // const restaurantData = [
   //   { id: 1, name: 'Ahoe', type: 'Korean', address: 'Jalan Raya, Cileunyi Wetan, Cileunyi, Bandung Regency, West Java 40622', time: '1-9.30 PM • Saturday Closed', rating: '4.8' },
