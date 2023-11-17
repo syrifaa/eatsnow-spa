@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar';
-
 import {
     Text,
     Box,
@@ -20,8 +19,10 @@ import {
     AlertDialogOverlay,
 } from "@chakra-ui/react";
 import voucherIcon from "../assets/vectors/voucher.svg"
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link as RouterLink} from 'react-router-dom';
+import axios from 'axios';
+import { REST_API_URL } from '../utils/axios';
 
 function RedeemVoucher() {
     interface YourItemType {
@@ -32,13 +33,28 @@ function RedeemVoucher() {
     interface YourComponentProps {
         data: YourItemType[];
     }
-    const data = [
-        { id: 1, title: 'Voucher 10%', desc: 20},
-        { id: 2, title: 'Voucher 20%', desc: 50},
-        { id: 3, title: 'Voucher 35%', desc: 100},
-        { id: 4, title: 'Voucher 50%', desc: 200},
-      ];
-    const voucher = 150;
+    // const data = [
+    //     { id: 1, title: 'Voucher 10%', desc: 20},
+    //     { id: 2, title: 'Voucher 20%', desc: 50},
+    //     { id: 3, title: 'Voucher 35%', desc: 100},
+    //     { id: 4, title: 'Voucher 50%', desc: 200},
+    //   ];
+    const url = REST_API_URL + 'voucher';
+    const fetchVoucher = () => {
+        return axios.get(url);
+    };
+
+    const [data, setData] = useState<YourItemType[]>([]);
+    const [voucher, setVoucher] = useState(350);
+
+    useEffect(() => {
+        fetchVoucher().then(response => {
+            setData(response.data);
+        }).catch(error => {
+            console.error('Error fetching voucher:', error);
+        });
+    }, []);
+    
     const YourComponent: React.FC<YourComponentProps> = ({ data }) => {
         const [isOpen, setIsOpen] = useState(Array(data.length).fill(false));
 

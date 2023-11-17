@@ -29,7 +29,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<RestaurantList />} />
-        <Route path="/add-review" element={<AddReview />} />
+        <Route path="/add-review/:resto_id/:resto_name" element={<AddReview />} />
         <Route path="/redeem-voucher" element={<RedeemVoucher />} />
         <Route path="/my-voucher" element={<MyVoucher />} />
         <Route path="/my-review" element={<MyReview />} />
