@@ -39,19 +39,35 @@ function RedeemVoucher() {
     //     { id: 3, title: 'Voucher 35%', desc: 100},
     //     { id: 4, title: 'Voucher 50%', desc: 200},
     //   ];
-    const url = REST_URL + 'voucher';
+    const url = REST_URL + '/voucher';
+    console.log(url);
     const fetchVoucher = () => {
         return axios.get(url);
     };
 
     const [data, setData] = useState<YourItemType[]>([]);
-    const [voucher, setVoucher] = useState(350);
 
     useEffect(() => {
         fetchVoucher().then(response => {
             setData(response.data);
         }).catch(error => {
             console.error('Error fetching voucher:', error);
+        });
+    }, []);
+
+    const email = localStorage.getItem('email');
+    const [voucher, setVoucher] = useState(0);
+
+    const fetchPoint = () => {
+        console.log(REST_URL + '/user/points/' + email);
+        return axios.get(REST_URL + '/user/points/' + email);
+    };
+
+    useEffect(() => {
+        fetchPoint().then(response => {
+            setVoucher(response.data.points);
+        }).catch(error => {
+            console.error('Error fetching point:', error);
         });
     }, []);
     

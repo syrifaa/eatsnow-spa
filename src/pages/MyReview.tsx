@@ -18,8 +18,8 @@ function MyReview() {
     }
 
     const data = [
-        {id:1, restaurantname: "Restaurant 1", rating: 4.5, content: "This is a review for Restaurant 1"},
-        {id:2, restaurantname: "Restaurant 2", rating: 3.5, content: "This is a review for Restaurant 2"},
+        {id:1, restaurantname: "Ahoe", rating: 4.7, content: "Enak bangett, minimal makan sekali disini, makanannya diturunin dari surga"},
+        {id:2, restaurantname: "KFC", rating: 3.5, content: "Enak ajaa, lebih suka lazatto"},
     ];
 
     const YourComponent: React.FC<YourComponentProps> = ({ data }) => {

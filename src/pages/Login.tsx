@@ -63,6 +63,8 @@ function Login() {
             isClosable: true,
           });
           localStorage.setItem("token", response.data.token);
+          // get email
+          localStorage.setItem("email", response.data.email);
           window.location.href = "/";
         } else if (response.status === 403 || response.status === 404) {
           toast({
