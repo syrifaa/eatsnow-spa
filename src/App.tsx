@@ -29,7 +29,6 @@ const App = () => {
     // <Login />
     <ChakraProvider theme={theme}>
       <Routes>
-
         <Route path="/" element={
           localStorage.getItem("token") ? <RestaurantList /> : <Navigate to="/login" />
         } />
@@ -38,7 +37,7 @@ const App = () => {
           localStorage.getItem("token") ? <Navigate to="/" /> : <Login />
         } />
 
-        <Route path="/add-review" element={
+        <Route path="/add-review/:resto_id/:resto_name" element={
           localStorage.getItem("token") ? <AddReview /> : <Navigate to="/login" />
         } />
 
@@ -59,6 +58,8 @@ const App = () => {
         <Route path="*" element={
           localStorage.getItem("token") ? <Navigate to="/" /> : <Navigate to="/login" />
         } />
+
+        <Route path="/add-review/:resto_id/:resto_name" element={<AddReview />} />
 
       </Routes>
     </ChakraProvider>
